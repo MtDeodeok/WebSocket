@@ -47,12 +47,5 @@ public class WebSocketController {
 		
 		return "home";
 	}
-	
-	@RequestMapping(value = "/webSocket2", method = RequestMethod.GET)
-	public String view(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
-				
-		return "webSocket2";
-	}
-
 
 }
