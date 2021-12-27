@@ -18,9 +18,11 @@ public class RoomList {
 	// WebSocketHandler2를 통해 받아온 sessionList 분해
 	/* sessionList의 size 만큼 반복해서
 	 * index의 key값 bang_id의 value 값을 bangID에 저장
-	 * 
-	 * 
-	 * 
+	 * index의 key값 session의 값을 joiner에 저장
+	 * 두개의 값을 roomMap에 넣고, 그걸 resultList에 넣음.
+	 * 그 값 중 bang_id에 해당하는 것만 list에 넣어서
+	 * RoomListVO에 저장함.
+	 * 저장한 값을 controller의 메소드 roomList로 보냄
 	*/
 	public void roomListDecomposition(List<Map<String, Object>> sessionList) {
 		List<Map> resultList = new LinkedList<Map>();
