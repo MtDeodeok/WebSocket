@@ -15,21 +15,22 @@ import com.web.websocket.vo.RoomListVO;
 public class RoomList {
 	RoomListVO roomListVO = new RoomListVO();
 	WebSocketController controller = new WebSocketController();
-	// sessionList 분해
+	// WebSocketHandler2를 통해 받아온 sessionList 분해
 	/* sessionList의 size 만큼 반복해서
 	 * index의 key값 bang_id의 value 값을 bangID에 저장
+	 * 
+	 * 
 	 * 
 	*/
 	public void roomListDecomposition(List<Map<String, Object>> sessionList) {
 		List<Map> resultList = new LinkedList<Map>();
 		String bangID = "";
+		String joiner = "";
 		for (int i = 0; i < sessionList.size(); i++) {
 			Map<String, String> roomMap = new HashMap<String, String>();
 			if (bangID.indexOf(sessionList.get(i).get("bang_id").toString()) == -1) {
 				bangID += bangID.equals("") ? sessionList.get(i).get("bang_id").toString()
 						: "," + sessionList.get(i).get("bang_id").toString();
-
-				String joiner = "";
 
 				roomMap.put("bang_id", sessionList.get(i).get("bang_id").toString());
 				joiner = sessionList.get(i).get("session").toString();
